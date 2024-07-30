@@ -79,14 +79,14 @@ class ManagerAccount{
 //CREA UNA CUENTA
     async createAccount(){
         try {
-            await AccountModel.create({
+            const account = await AccountModel.create({
         //asigna los valores a las propiedades
                 userId:this.userId,
                 accountNumber:this.accountNumber,
                 accountType:this.accountType,
                 balance:this.balance,
             });
-            return "Bienvenido al mundo de los impuestos, a por cierto, le debes al SAT";
+            return account;
         } catch (error) {
             throw new Error(`Le caiste mal al programa, ushcale! ${error}`);
         }
